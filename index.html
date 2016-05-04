@@ -1,15 +1,76 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Mingda Zhang at Pitt</title>
+	<title>Mingda Zhang @ Pitt</title>
+    <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora:400italic,700italic' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="js/jquery.fullPage.js"></script>
+    <script text="text/javascript">
+    $(document).ready(function() {
+        $('#full').fullpage({
+            anchors: ['home', 'courses', 'news', 'contact'],
+            menu: '#menu',
+            css3: true,
+        });
+    });
+    </script>
 </head>
+
 <body>
-	<h1>Mingda Zhang</h1>
-	<p>
-		mzhang (at) cs (dot) pitt (dot) edu<br />
-		M.S. in Computer Science<br />
-		Computer Science Department<br />
-		University of Pittsburgh<br />
-	</p>
+    <div id="full">
+        <div class="section">
+            <div class="place"></div>
+            <img class="img-circle" src="img/image.jpeg">
+    	    <div class="title">Mingda Zhang</div>
+            <div class="intro">
+                Ph.D. student in Computer Science<br />
+                University of Pittsburgh<br />
+            </div>
+            <ul id="menu">
+                <li data-menuanchor="home"><a href="#home">Home</a></li>
+                <li data-menuanchor="courses"><a href="#courses">Courses</a></li>
+                <li data-menuanchor="news"><a href="#news">News</a></li>
+                <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="section">
+            <div class="place"></div>
+            <div class="content">
+                <h3>Fall 2015</h3>
+                <p>
+                    CS 2510. Computer Operating Systems<br />
+                    CS 2610. Interface Design and Evaluation<br />
+                    CS 2710. Foundations of Artificial Intelligence<br />
+                </p>
+                <h3>Spring 2016</h3>
+                <p>
+                    CS 2210. Compiler Design<br />
+                    CS 2731. Introduction of Natural Language Processing<br />
+                    CS 2750. Machine Learning<br />
+                </p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="place"></div>
+            <div class="content">
+                <p>
+                    <b>2016-5-2</b><br />
+                    New website online.<br />
+                </p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="place"></div>
+            <div class="content">
+                <h3>E-mail</h3>
+    	        <p>
+    	        	mzhang (at) cs (dot) pitt (dot) edu<br />
+    	        </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

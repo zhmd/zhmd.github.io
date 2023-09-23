@@ -1,11 +1,610 @@
+
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<title>Mingda Zhang @ Pitt</title>
-<meta http-equiv="refresh" content="1; URL=http://people.cs.pitt.edu/~mzhang">
+  <title>Mingda Zhang</title>
+  <!--
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  -->
+  <meta name="google-site-verification" content="Y4evKj3_V2X8jyMuIYEWr8cV3KRi8T9oLRHSCcVpQY8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </script>
+  <script>
+    $(document)
+      .ready(function() {
+        $("#expand_news").click(function() {
+          $("#expand_news").hide();
+          $("#prev_news").show();
+        });
+        $("#expand_prev_pubs").click(function() {
+          $("#expand_prev_pubs").hide();
+          $("#prev_pubs").show();
+        });
+        $("#expand_courses").click(function() {
+          $("#expand_courses").hide();
+          $("#courses_list").show();
+        });
+        $("span[id^='expand']").click(function() {
+          $("div#" + this.id.substr(7)).toggle();
+        });
+        $("a")
+          .on('click', function(event) {
+            if (this.hash !== "") {
+              event.preventDefault();
+              var hash = this.hash;
+              $('html, body')
+                .animate({
+                  scrollTop: $(hash)
+                    .offset()
+                    .top
+                }, 500, function() {
+                  window.location.hash = hash;
+                });
+            }
+          });
+      });
+  </script>
 </head>
+
 <body>
-You'll be redirected to my personal website at Pitt. If it doesn't automatically go there within a few seconds, please click 
-<a href="https://people.cs.pitt.edu/~mzhang">here</a>.
+  <div class="banner">
+    <div id="header">
+      <div id="name" title="张明达">
+        Mingda Zhang
+      </div>
+      <div id="navigator">
+        <div class="nav_cell"><a class="nav" href="#about">About</a></div>
+        <div class="nav_cell"><a class="nav" href="#research">Research</a></div>
+        <div class="nav_cell"><a class="nav" href="#experience">Experience</a>
+        </div>
+        <div class="nav_cell"><a class="nav" href="#courses">Courses</a></div>
+        <div class="nav_cell"><a class="nav" href="#contact">Contact</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="main">
+
+    <div class="content">
+      <a class="anchor" id="about"></a>
+      <div class="introduction">
+        <div id="selfie">
+          <img src="img/selfie.jpg" /><br>
+        </div>
+        <div class="right" style="padding-top: 0px;">
+          <p>I am a Software Engineer at Google Research, Perception.</p>
+          <p>I got my Ph.D. in Computer Science from the <a href="https://cs.pitt.edu/" target="_blank">Department of Computer
+              Science</a> at <a href="https://www.pitt.edu/" target="_blank">University of Pittsburgh</a>.
+            Before coming to Pitt, I obtained my B.S. in Chemical Biology from
+            <a href="http://www.pku.edu.cn/" target="_blank">Peking
+              University</a>.
+            <p>My research interests lie broadly in artificial intelligence and
+              machine learning, including the applications in computer vision and
+              natural language processing. I am very lucky to have <a href="https://people.cs.pitt.edu/~kovashka/" target="_blank">Prof.
+                Adriana Kovashka</a> and <a href="https://people.cs.pitt.edu/~hwa/" target="_blank">Prof.
+                Rebecca Hwa</a> as my co-advisors.</p>
+        </div>
+      </div>
+
+      <div class="subtitle">
+        News
+      </div>
+      <ul id="news">
+        <li><span class="date">(2023.9)</span> <span class="news_item"><a href="">Video Timeline Modeling for News Story Understanding</a> has been accepted as a <i>Spotlight</i> to NeurIPS 2023, Track on Datasets and Benchmarks.</span></li>
+        <li><span class="date">(2023.3)</span> <span class="news_item"><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Chen_Train-Once-for-All_Personalization_CVPR_2023_paper.pdf">Train-Once-for-All Personalization</a> has been accepted to CVPR 2023.</span></li>
+        <div id="expand_news" class="clickable">
+          <li>Click to see more...</li>
+        </div>
+        <div id="prev_news" style="display: none;">
+          <li><span class="date">(2021.11)</span> <span class="news_item">I defended my thesis titled "Domain Robustness in Multi-modality Learning and Visual Question Answering".</span></li>
+          <li><span class="date">(2021.6)</span> <span class="news_item">Our <a href="https://arxiv.org/abs/2105.03014" target="_blank">BasisNet</a> paper has been awarded <a href="https://sites.google.com/view/ecv2021/presentations" target="_blank">best paper award</a> for CVPR 2021 workshop: Efficient Deep Learning for Computer Vision. Many thanks to all my collaborators at Google: Li, Chun-Te, Andrey, Andrew, Brendan, Yukun, and my advisors at Pitt: Rebecca and Adriana!</span></li>
+          <li><span class="date">(2021.3)</span> <span class="news_item">I passed my thesis proposal and officially became a PhD candidate.</span></li>
+          <li><span class="date">(2021.3)</span> <span class="news_item">Our paper on domain robustness for visual question answering has been accepted to CVPR 2021.</span></li>
+          <li><span class="date">(2020.8)</span> <span class="news_item">I worked with Google Geo (Maps) as a research intern in the summer 2020.</span></li>
+          <li><span class="date">(2020.1)</span> <span class="news_item">I continued my work with Google Research as a part-time student researcher from January to May, 2020.</span></li>
+          <li><span class="date">(2019.10)</span> <span class="news_item">I attended <a href="http://iccv2019.thecvf.com/" target="_blank">ICCV 2019</a> at Seoul, Korea and presented our weakly-supervised object detection <a href="https://people.cs.pitt.edu/~kovashka/ye_zhang_kovashka_iccv2019_cap2det.pdf" target="_blank">paper</a>.</span></li>
+          <li><span class="date">(2019.5)</span> <span class="news_item">I came back to Google Research, Seattle as a research intern!</span></li>
+          <li><span class="date">(2018.9)</span> I attended <a href="http://bmvc2018.org/" target="_blank">BMVC 2018</a> at
+            Newcastle upon Tyne, UK and gave a <a href="https://www.youtube.com/watch?v=tZPYV7kktKc&t=3870" target="_blank">spotlight talk</a> for our <a href="https://people.cs.pitt.edu/~kovashka/zhang_hwa_kovashka_bmvc2018.pdf" target="_blank">paper</a>.</li>
+          <li><span class="date">(2018.8)</span> I had a great summer in Seattle interning at <a href="https://ai.google/research/" target="_blank">Google AI</a>.</li>
+          <li><span class="date">(2017.7)</span> I attended <a href="http://cvpr2017.thecvf.com/" target="_blank">CVPR 2017</a> at
+            Hawaii and gave a <a href="https://www.youtube.com/watch?v=gjBj-MkmbWs" target="_blank">spotlight talk</a> for our advertisement
+            understanding <a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Hussain_Automatic_Understanding_of_CVPR_2017_paper.pdf" target="_blank">paper</a>.</li>
+          <li><span class="date">(2016.11)</span> I received the Arts and Sciences Graduate Fellowship again for Spring 2017.</li>
+          <li><span class="date">(2016.5)</span> I received the Arts and Sciences Graduate Fellowship for Fall 2016.</li>
+        </div>
+      </ul>
+    </div>
+
+    <hr>
+
+    <div class="content">
+      <div class="title">Research</div>
+      <a class="anchor" id="research"></a>
+
+      <div class="subtitle">Publications</div>
+      <ul>
+        <li>
+          <div class="publication">
+            <span class="emph">Video Timeline Modeling for News Story Understanding</span><br>
+            Meng Liu, <span class="underline">Mingda Zhang</span>, Jialu Liu, Hanjun Dai, Ming-Hsuan Yang, Shuiwang Ji, Zheyun Feng, Boqing Gong.<br>
+            To appear, <i>Neural Information Processing Systems (NeurIPS), Track on Datasets and Benchmarks, December 2023.</i> <span class="emph">(Spotlight)</span><br>
+          </div>
+        </li>
+
+        <li>
+          <div class="publication">
+            <span class="emph">Train-Once-for-All Personalization</span><br>
+            Hong-You Chen, Yandong Li, Yin Cui, <span class="underline">Mingda Zhang</span>, Wei-Lun Chao, Li Zhang.<br>
+            <i>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), June 2023.</i><br>
+            (<a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Chen_Train-Once-for-All_Personalization_CVPR_2023_paper.pdf" target="_blank">pdf</a>)
+          </div>
+        </li>
+
+        <div id="expand_prev_pubs" class="clickable">
+          <li>
+            If you are interested in my previous publications (before joining Google), click here...
+          </li>
+        </div>
+
+        <div id="prev_pubs" style="display: none;">
+          <li>
+            <div class="publication">
+              <span class="emph">How to Practice VQA on a Resource-limited Target Domain</span><br>
+              <span class="underline">Mingda Zhang</span>, Rebecca Hwa, Adriana Kovashka.<br>
+              <i>Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), January 2023.</i><br>
+              (<a href="practice-vqa" target="_blank">project</a>)
+              (<a href="https://openaccess.thecvf.com/content/WACV2023/papers/Zhang_How_To_Practice_VQA_on_a_Resource-Limited_Target_Domain_WACV_2023_paper.pdf" target="_blank">pdf</a>)
+              (<span id="expand_bibtex_wacv_2023" class="clickable link">bibtex</span>)
+              <div id="bibtex_wacv_2023" style="display: none;">
+                <pre>@InProceedings{Zhang_2023_WACV,
+    author    = {Zhang, Mingda and Hwa, Rebecca and Kovashka, Adriana},
+    title     = {How To Practice VQA on a Resource-Limited Target Domain},
+    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {January},
+    year      = {2023},
+}</pre>
+              </div>
+          </li>
+
+          <li>
+            <div class="publication">
+              <span class="emph">Learning to Overcome Noise in Weak Caption Supervision for Object Detection</span><br>
+              Mesut Erhan Unal, Keren Ye, <span class="underline">Mingda Zhang</span>, Christopher Thomas, Adriana Kovashka, Wei Li, Danfeng Qin, Jesse Berent<br>
+              <i>Transactions of Pattern Analysis and Machine Intelligence (TPAMI), 2022</i><br>
+              (<a href="https://people.cs.pitt.edu/~kovashka/unal_ye_kovashka_cap2det_tpami2022.pdf" target="_blank">pdf</a>)
+              (<span id="expand_bibtex_tpami_2022" class="clickable link">bibtex</span>)
+              <div id="bibtex_tpami_2022" style="display: none;">
+                <pre>@article{unal2022learning,
+    title={Learning to Overcome Noise in Weak Caption Supervision for Object Detection},
+    author={Unal, Mesut Erhan and Ye, Keren and Zhang, Mingda and Thomas, Christopher and Kovashka, Adriana and Li, Wei and Qin, Danfeng and Berent, Jesse},
+    journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+    year={2022}
+}</pre>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="publication">
+              <span class="emph">Abg-CoQA: Clarifying Ambiguity in Conversational Question Answering</span><br>
+              Meiqi Guo, <span class="underline">Mingda Zhang</span>, Siva Reddy, Malihe Alikhani.<br>
+              <i>Proceedings of the 3rd Conference on Automated Knowledge Base Construction (AKBC), October 2021.</i><br>
+              (<a href="https://www.akbc.ws/2021/assets/pdfs/SlDZ1o8FsJU.pdf" target="_blank">pdf</a>)
+              (<span id="expand_bibtex_abgcoqa" class="clickable link">bibtex</span>)
+              <div id="bibtex_abgcoqa" style="display: none;">
+                <pre>@InProceedings{Guo_2021_AbgCoQA,
+    author = {Guo, Meiqi and Zhang, Mingda and Reddy, Siva and Diab, Ahmad and Alikhani, Malihe},
+    title = {Abg-Co{QA}: Clarifying Ambiguity in Conversational Question Answering},
+    booktitle = {3rd Conference on Automated Knowledge Base Construction (AKBC)},
+    year = {2021}
+}</pre>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="publication">
+              <span class="emph">Domain-robust VQA with Diverse Datasets and Methods but No Target Labels</span><br>
+              <span class="underline">Mingda Zhang</span>, Tristan Maidment, Ahmad Diab, Adriana Kovashka, Rebecca Hwa.<br>
+              <i>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), June 2021.</i><br>
+              (<a href="domain-robust-vqa" target="_blank">project</a>)
+              (<a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zhang_Domain-Robust_VQA_With_Diverse_Datasets_and_Methods_but_No_Target_CVPR_2021_paper.pdf" target="_blank">pdf</a>)
+              (<a href="https://people.cs.pitt.edu/~mzhang/domain-robust-vqa/poster.pdf" target="_blank">poster</a>)
+              (<a href="https://youtu.be/cjb5IKsbX_g" target="_blank">slides</a>)
+              (<a href="http://arxiv.org/abs/2103.15974" target="_blank">arxiv</a>)
+              (<span id="expand_bibtex_drvqa" class="clickable link">bibtex</span>)
+              <div id="bibtex_drvqa" style="display: none;">
+                <pre>@InProceedings{Zhang_2021_Domain,
+    author = {Zhang, Mingda and Maidment, Tristan and Diab, Ahmad and Kovashka, Adriana and Hwa, Rebecca},
+    title = {Domain-robust VQA with Diverse Datasets and Methods but No Target Labels},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month = {June},
+    year = {2021}
+}</pre>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="publication">
+              <span class="emph">BasisNet: Two-stage Model Synthesis for Efficient Inference</span><br>
+              <span class="underline">Mingda Zhang</span>, Chun-Te Chu, Andrey Zhmoginov, Andrew Howard, Brendan Jou, Yukun Zhu, Li Zhang, Rebecca Hwa, Adriana Kovashka.<br>
+              <i>4th Workshop on Efficient Deep Learning for Computer Vision (ECV21), Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshop, June 2021.</i> <a href="https://sites.google.com/view/ecv2021/presentations" target="_blank"><span class="emph">(Best Paper Award)</span></a><br>
+              (<a href="https://openaccess.thecvf.com/content/CVPR2021W/ECV/papers/Zhang_BasisNet_Two-Stage_Model_Synthesis_for_Efficient_Inference_CVPRW_2021_paper.pdf" target="_blank">pdf</a>)
+              (<a href="https://openaccess.thecvf.com/content/CVPR2021W/ECV/supplemental/Zhang_BasisNet_Two-Stage_Model_CVPRW_2021_supplemental.pdf" target="_blank">supplementary</a>)
+              (<a href="https://youtu.be/AE7wy-ehW-M" target="_blank">slides</a>)
+              (<a href="https://arxiv.org/abs/2105.03014" target="_blank">arxiv</a>)
+              (<span id="expand_bibtex_basisnet" class="clickable link">bibtex</span>)
+              <div id="bibtex_basisnet" style="display: none;">
+                <pre>@InProceedings{Zhang_2021_BasisNet,
+    author = {Zhang, Mingda and Chu, Chun-Te and Zhmoginov, Andrey and Howard, Andrew and Jou, Brendan and Zhu, Yukun and Zhang, Li and Hwa, Rebecca and Kovashka, Adriana},
+    title = {BasisNet: Two-Stage Model Synthesis for Efficient Inference},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month = {June},
+    year = {2021}
+}</pre>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="publication">
+              <span class="emph">Breaking Shortcuts by Masking for Robust Visual Reasoning</span><br>
+              Keren Ye, <span class="underline">Mingda Zhang</span>, Adriana Kovashka.<br>
+              <i>Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), January 2021.</i><br>
+              (<a href="https://openaccess.thecvf.com/content/WACV2021/papers/Ye_Breaking_Shortcuts_by_Masking_for_Robust_Visual_Reasoning_WACV_2021_paper.pdf" target="_blank">pdf</a>)
+              (<a href="https://openaccess.thecvf.com/content/WACV2021/supplemental/Ye_Breaking_Shortcuts_by_WACV_2021_supplemental.pdf" target="_blank">supplementary</a>)
+              (<span id="expand_bibtex_shortcut" class="clickable link">bibtex</span>)
+              <div id="bibtex_shortcut" style="display: none;">
+                <pre>@InProceedings{Ye_2021_Shortcut,
+    author = {Ye, Keren and Zhang, Mingda and Kovashka, Adriana},
+    title = {Breaking Shortcuts by Masking for Robust Visual Reasoning},
+    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+    month = {January},
+    year = {2021}
+}</pre>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="publication">
+              <span class="emph">Story Completion with Explicit Modeling of Commonsense Knowledge</span><br>
+              <span class="underline">Mingda Zhang</span>, Keren Ye, Rebecca Hwa, Adriana Kovashka.<br>
+              <i>Minds vs. Machines: How far are we from the common sense of a toddler?, Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshop, June 2020.</i><br>
+              (<a href="http://www.mindsvsmachines.com/papers/camready5.pdf" target="_blank">pdf</a>)
+              (<a href="https://youtu.be/oKgm-7vh1Cw" target="_blank">recording</a>)
+              (<span id="expand_bibtex_mvm" class="clickable link">bibtex</span>)
+              <div id="bibtex_mvm" style="display: none;">
+                <pre>@InProceedings{Zhang_2020_Story,
+    author = {Zhang, Mingda and Ye, Keren and Hwa, Rebecca and Kovashka, Adriana},
+    title = {Story Completion With Explicit Modeling of Commonsense Knowledge},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month = {June},
+    year = {2020}
+}</pre>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="publication">
+              <span class="emph">Monitoring ICU Mortality Risk with A Long
+                Short-Term Memory Recurrent Neural Network</span><br>
+              Ke Yu*, <span class="underline">Mingda Zhang*</span>, Tianyi Cui*, Milos Hauskrecht. (*equal contributions)<br>
+              <i>Proceedings of Pacific Symposium on Biocomputing (PSB), January 2020.</i>
+              <span class="emph">(Oral)</span><br>
+              (<a href="http://psb.stanford.edu/conference-materials/psb20-proceedings.pdf#page=113" target="_blank">pdf</a>)
+              (<span id="expand_bibtex_psb" class="clickable link">bibtex</span>)
+              <div id="bibtex_psb" style="display: none;">
+                <pre>@InProceedings{Yu_2019_Monitoring,
+    author = {Yu, Ke and Zhang, Mingda and Cui, Tianyi and Hauskrecht, Milos},
+    title = {Monitoring ICU Mortality Risk with A Long Short-Term Memory Recurrent Neural Network},
+    booktitle = {Proceedings of Pacific Symposium On Biocomputing (PSB)},
+    month = {January},
+    year = {2020}
+}</pre>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="publication">
+              <span class="emph">Interpreting the Rhetoric of Visual Advertisements</span><br>
+              Keren Ye, Narges Honarvar Nazari, James Hahn, Zaeem Hussain, <span class="underline">Mingda Zhang</span>, Adriana Kovashka.<br>
+              <i>Transactions of Pattern Analysis and Machine Intelligence (TPAMI), 2019.</i><br>
+              (<a href="https://people.cs.pitt.edu/~kovashka/ye_kovashka_ads_tpami2019.pdf" target="_blank">pdf</a>)
+              (<span id="expand_bibtex_tpami" class="clickable link">bibtex</span>)
+              <div id="bibtex_tpami" style="display: none;">
+                <pre>@Article{Ye_2019_Interpreting,
+    author = {Ye, Keren and Nazari, Narges Honarvar and Hahn, James and Hussain, Zaeem and Zhang, Mingda and Kovashka, Adriana},
+    journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)},
+    title = {Interpreting the Rhetoric of Visual Advertisements},
+    year = {2021},
+    volume = {43},
+    number = {4},
+    pages = {1308-1323},
+    doi = {10.1109/TPAMI.2019.2947440}
+}</pre>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="publication">
+              <span class="emph">Cap2Det: Learning to Amplify Weak Caption
+                Supervision for Object Detection</span><br>
+              Keren Ye, <span class="underline">Mingda Zhang</span>, Adriana Kovashka, Wei Li, Danfeng Qin, Jesse Berent.<br>
+              <i>Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), October 2019.</i><br>
+              (<a href="https://people.cs.pitt.edu/~kovashka/ye_zhang_kovashka_iccv2019_cap2det.pdf" target="_blank">pdf</a>)
+              (<a href="https://people.cs.pitt.edu/~kovashka/ye_zhang_kovashka_iccv2019_cap2det_supp.pdf" target="_blank">supplementary</a>)
+              (<a href="https://github.com/yekeren/Cap2Det" target="_blank">code</a>)
+              (<a href="https://arxiv.org/abs/1907.10164" target="_blank">arxiv</a>)
+              (<span id="expand_bibtex_cap2det" class="clickable link">bibtex</span>)
+              <div id="bibtex_cap2det" style="display: none;">
+                <pre>@InProceedings{Ye_2019_Cap2Det,
+    author = {Ye, Keren and Zhang, Mingda and Kovashka, Adriana and Li, Wei and Qin, Danfeng and Berent, Jesse},
+    title = {Cap2Det: Learning to Amplify Weak Caption Supervision for Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month = {October},
+    year = {2019}
+}</pre>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="publication">
+              <span class="emph">Equal But Not The Same: Understanding the Implicit Relationship Between Persuasive Images and Text</span><br>
+              <span class="underline">Mingda Zhang</span>, Rebecca Hwa, Adriana Kovashka.<br>
+              <i>Prceedings of the British Machine Vision Conference (BMVC), September 2018.</i> <span class="emph">(Spotlight)</span><br>
+              (<a href="ads_parallelity" target="_blank">project</a>)
+              (<a href="https://people.cs.pitt.edu/~mzhang/ads_parallelity/#corpus" target="_blank">dataset</a>)
+              (<a href="https://people.cs.pitt.edu/~kovashka/zhang_hwa_kovashka_bmvc2018.pdf" target="_blank">pdf</a>)
+              (<a href="https://www.youtube.com/watch?v=O3yn_U6KW-s" target="_blank">slides</a>)
+              (<a href="https://www.youtube.com/watch?v=tZPYV7kktKc&t=3870" target="_blank">recording</a>)
+              (<a href="https://arxiv.org/abs/1807.08205" target="_blank">arxiv</a>)
+              (<span id="expand_bibtex_bmvc" class="clickable link">bibtex</span>)
+              <div id="bibtex_bmvc" style="display: none;">
+                <pre>@InProceedings{Zhang_2018_Equal,
+    author = {Zhang, Mingda and Hwa, Rebecca and Kovashka, Adriana},
+    title = {Equal But Not The Same: Understanding the Implicit Relationship Between Persuasive Images and Text},
+    booktitle = {Proceedings of the British Machine Vision Conference (BMVC)},
+    month = {September},
+    year = {2018}
+}</pre>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="publication">
+              <span class="emph">Automatic Understanding of Image and Video Advertisements</span><br>
+              Zaeem Hussain, <span class="underline">Mingda Zhang</span>, Xiaozhong Zhang, Keren Ye, Chris Thomas, Zuha Agha, Nathan Ong, Adriana Kovashka.<br>
+              <i>Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), July 2017.</i> <span class="emph">(Spotlight)</span><br>
+              (<a href="https://people.cs.pitt.edu/~kovashka/ads/" target="_blank">project</a>)
+              (<a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Hussain_Automatic_Understanding_of_CVPR_2017_paper.pdf" target="_blank">pdf</a>)
+              (<a href="https://people.cs.pitt.edu/~kovashka/hussain_zhang_kovashka_ads_poster_cvpr2017.pdf" target="_blank">poster</a>)
+              (<a href="https://www.youtube.com/watch?v=bOjV9Su-4qY" target="_blank">slides</a>)
+              (<a href="https://www.youtube.com/watch?v=gjBj-MkmbWs" target="_blank">recording</a>)
+              (<a href="https://arxiv.org/abs/1707.03067" target="_blank">arxiv</a>)
+              (<span id="expand_bibtex_ads" class="clickable link">bibtex</span>)
+              <div id="bibtex_ads" style="display: none;">
+                <pre>@InProceedings{Hussain_2017_Automatic,
+    author = {Hussain, Zaeem and Zhang, Mingda and Zhang, Xiaozhong and Ye, Keren and Thomas, Christopher and Agha, Zuha and Ong, Nathan and Kovashka, Adriana},
+    title = {Automatic Understanding of Image and Video Advertisements},
+    booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month = {July},
+    year = {2017}
+}</pre>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="emph">Multistep DNA-templated Synthesis using a
+              Universal Template</span><br>
+            Yizhou Li, Peng Zhao, <span class="underline">Mingda Zhang</span>,
+            Xianyuan Zhao, Xiaoyu Li.<br>
+            <i>Journal of the American Chemical Society (JACS)</i>, 135,
+            17727-17730 (2013).
+          </li>
+
+          <li>
+            <span class="emph">DNA-directed Formation of Peptide Bond: A Model
+              Study toward DNA-programmed Peptide Ligation</span><br>
+            Chi Zhang, Yizhou Li, <span class="underline">Mingda Zhang</span>,
+            Xiaoyu Li.<br>
+            <i>Tetrahedron </i>, 68, 5152-5156 (2012).
+          </li>
+
+          <li>
+            <span class="emph">Detection of Bond Formations by DNA-programmed
+              Chemical Reactions and PCR Amplification</span><br>
+            Yizhou Li, <span class="underline">Mingda Zhang</span>, Chi Zhang,
+            Xiaoyu Li.<br>
+            <i>Chemical Communications</i>, 48, 9513-9515 (2012).
+          </li>
+
+        </div>
+
+      </ul>
+
+      <hr>
+
+      <div class="content">
+        <div class="title">Experience</div>
+        <a class="anchor" id="experience"></a>
+        <div class="subtitle">Work</div>
+        <ul>
+          <li>
+            (2022.6 - now) Software Engineer at Google Research, New York City, NY
+          </li>
+          <li>
+            (2021.12 - 2022.6) Software Engineer at Google Cloud AI and Industry Solutions, New York City, NY
+          </li>
+          <li>
+            (2020.5 - 2020.8) Research Intern at Google Geo, (Virtually at) New York City, NY
+          </li>
+          <li>
+            (2020.1 - 2020.5) Part-time Student Researcher at Google Research, (Remotely from) Pittsburgh, PA
+          </li>
+          <li>
+            (2019.5 - 2019.8) Research Intern at Google Research, Seattle, WA
+          </li>
+          <li>
+            (2018.5 - 2018.8) Ph.D. Software Engineering Intern at Google Research, Seattle, WA
+          </li>
+        </ul>
+
+        <div class="subtitle">Professional Service</div>
+        <ul>
+          <li>Conference Reviewer:
+            <ul id="sublist">
+              <li>CVPR: <a href="https://cvpr2023.thecvf.com" target="_blank">2023</a>, <a href="https://cvpr2022.thecvf.com" target="_blank">2022</a>, <a href="https://cvpr2021.thecvf.com" target="_blank">2021</a>, <a href="https://cvpr2020.thecvf.com" target="_blank">2020</a>, <a href="https://cvpr2019.thecvf.com" target="_blank">2019</a>;</li>
+              <li>ICCV: <a href="http://iccv2023.thecvf.com" target="_blank">2023</a>, <a href="http://iccv2021.thecvf.com" target="_blank">2021</a>, <a href="https://iccv2019.thecvf.com" target="_blank">2019</a>;</li>
+              <li>ECCV: <a href="https://eccv2020.eu" target="_blank">2020</a>;</li>
+              <li>NeurIPS: <a href="https://nips.cc/Conferences/2022" target="_blank">2022</a>, <a href="https://nips.cc/Conferences/2021" target="_blank">2021</a>, <a href="https://nips.cc/Conferences/2020" target="_blank">2020</a>;</li>
+              <li>AAAI: <a href="https://aaai.org/Conferences/AAAI-22/" target="_blank">2022</a>, <a href="https://aaai.org/Conferences/AAAI-21" target="_blank">2021</a>, <a href="https://aaai.org/Conferences/AAAI-20" target="_blank">2020</a>;</li>
+              <li>ICLR: <a href="https://iclr.cc/Conferences/2022" target="_blank">2022</a>, <a href="https://iclr.cc/Conferences/2021" target="_blank">2021</a> (<a href="https://iclr.cc/Conferences/2021/Reviewers" target="_blank">Outstanding Reviewer</a>);</li>
+              <li>ICML: <a href="https://icml.cc/Conferences/2023" target="_blank">2023</a>;</li>
+              <li>ACCV: <a href="https://accv2020.github.io" target="_blank">2020</a>;</li>
+              <li>WACV: <a href="https://wacv2023.thecvf.com" target="_blank">2023</a>, <a href="https://wacv2022.thecvf.com" target="_blank">2022</a>, <a href="https://wacv2021.thecvf.com" target="_blank">2021</a>.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <!--
+        <div class="subtitle">Teaching Assistant</div>
+        <ul>
+          <li>CS 1674
+            <a href="https://people.cs.pitt.edu/~kovashka/cs1674_fa20/" target="_blank">Introduction to Computer Vision</a>, Fall 2020
+          </li>
+          <li>CS 1699
+            <a href="https://people.cs.pitt.edu/~kovashka/cs1699_sp20/" target="_blank">Deep Learning</a>, Spring 2020
+          </li>
+          <li>CS 1699
+            Privacy in the Electronic Society, Spring 2018
+          </li>
+          <li>CS 1699
+            <a href="https://people.cs.pitt.edu/~xex1/1699-Spring18.html" target="_blank">Wireless Networking</a>, Spring 2018
+          </li>
+          <li>CS 0449
+            <a href="https://people.cs.pitt.edu/~jmisurda/teaching/cs0449-2177-index.htm" target="_blank">Introduction to Systems Software</a>, Summer 2017
+          </li>
+        </ul>
+        -->
+      </div>
+
+      <!--
+      <hr>
+
+      <div class="content">
+        <div class="title">Courses</div>
+        <a class="anchor" id="courses"></a>
+        <ul>
+          <li>CS 2710
+            <a href="https://people.cs.pitt.edu/~wiebe/courses/CS2710/Fall2015/" target="_blank">Foundations of Artificial Intelligence</a>
+          </li>
+
+          <li>CS 2731
+            <a href="https://people.cs.pitt.edu/~hwa/cs2731/" target="_blank">Introduction to Natural Language Processing</a>
+          </li>
+
+          <li>CS 2750
+            <a href="https://people.cs.pitt.edu/~kovashka/cs2750_sp16/" target="_blank">Machine Learning</a>
+          </li>
+
+          <li>CS 2770
+            <a href="https://people.cs.pitt.edu/~kovashka/cs2770_sp18/" target="_blank">Computer Vision</a>
+          </li>
+
+          <li>CS 3750
+            <a href="https://people.cs.pitt.edu/~milos/courses/cs3750/" target="_blank">Advanced Topics in Machine Learning</a>
+          </li>
+
+          <li>CS 3790
+            Pattern Recognition
+          </li>
+
+          <li>STAT 3341
+            <a href="https://piazza.com/pitt/spring2017/stat3341/home" target="_blank">Advanced Modern Statistical Computing</a>
+          </li>
+
+          <div id="expand_courses" class="clickable">
+            <li>Click to see full course list</li>
+          </div>
+
+          <div id="courses_list" style="display: none;">
+            <li>CS 2150
+              <a href="https://people.cs.pitt.edu/~kirk/cs2150/index.html" target="_blank">Design and Analysis of Algorithms</a>
+            </li>
+
+            <li>CS 2210
+              <a href="https://people.cs.pitt.edu/~wahn/teaching/cs2210/" target="_blank">Compiler Design</a>
+            </li>
+
+            <li>CS 2310
+              <a href="https://people.cs.pitt.edu/~chang/231/231syl.html" target="_blank">Multimedia Software Engineering</a>
+            </li>
+
+            <li>CS 2510
+              <a href="https://people.cs.pitt.edu/~jacklange/teaching/cs2510-f15/" target="_blank">Computer Operating Systems</a>
+            </li>
+
+            <li>CS 2530
+              <a href="https://people.cs.pitt.edu/~adamlee/courses/cs2530/" target="_blank">Computer and Network Security</a>
+            </li>
+
+            <li>CS 2610
+              <a href="http://mips.lrdc.pitt.edu/cs2610-fall15/Main_Page" target="_blank">Research Topics in Human-Computer Interaction</a>
+            </li>
+          </div>
+        </ul>
+
+      </div>
+      -->
+
+      <hr>
+
+      <div class="content">
+        <div class="title">Contact</div>
+        <a class="anchor" id="contact"></a>
+        <ul>
+          <li>Email: <span style="font-size: 15px; font-family: monospace;">mngdaz@gmail.com</span></li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div style="margin-top: 10px; text-align: center; font-size: 14px; color: black;">
+      Copyright &copy; 2015 - 2023, Mingda Zhang. All rights reserved.<br>
+      Last Updated: March 6, 2023
+    </div>
+
+    <!-- Start of StatCounter Code for Default Guide -->
+    <script type="text/javascript">
+      var sc_project = 11467182;
+      var sc_invisible = 1;
+      var sc_security = "61339317";
+      var scJsHost = (("https:" == document.location.protocol) ?
+        "https://secure." : "http://www.");
+      document.write("<script type='text/javascript' src='" + scJsHost +
+        "statcounter.com/counter/counter.js'></" + "script>");
+    </script>
+    <noscript>
+      <div class="statcounter"><a title="Web Analytics" href="http://statcounter.com/" target="_blank"><img class="statcounter" src="//c.statcounter.com/11467182/0/61339317/1/" alt="Web Analytics"></a></div>
+    </noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
 </body>
+
 </html>
